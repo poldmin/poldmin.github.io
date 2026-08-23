@@ -93,40 +93,11 @@ body::after {
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
 
-.float-1 {
-    width: 140px;
-    top: 10%;
-    left: -180px;
-    animation: flyRight 25s linear infinite;
-}
-
-.float-2 {
-    width: 90px;
-    top: 50%;
-    right: -180px;
-    animation: flyLeft 32s linear infinite 5s;
-}
-
-.float-3 {
-    width: 120px;
-    top: 85%;
-    left: -180px;
-    animation: flyRight 28s linear infinite 12s;
-}
-
-.float-4 {
-    width: 150px;
-    top: 25%;
-    right: -200px;
-    animation: flyLeft 36s linear infinite 2s;
-}
-
-.float-5 {
-    width: 80px;
-    top: 70%;
-    left: -180px;
-    animation: flyRight 30s linear infinite 8s;
-}
+.float-1 { width: 140px; top: 10%; left: -180px; animation: flyRight 25s linear infinite; }
+.float-2 { width: 90px; top: 50%; right: -180px; animation: flyLeft 32s linear infinite 5s; }
+.float-3 { width: 120px; top: 85%; left: -180px; animation: flyRight 28s linear infinite 12s; }
+.float-4 { width: 150px; top: 25%; right: -200px; animation: flyLeft 36s linear infinite 2s; }
+.float-5 { width: 80px; top: 70%; left: -180px; animation: flyRight 30s linear infinite 8s; }
 
 @keyframes flyRight {
     0% { transform: translateX(0) translateY(0) rotate(-15deg); }
@@ -280,37 +251,18 @@ main {
     pointer-events: none;
 }
 
-.card:hover {
-    transform: translate(-10px, -10px);
-}
-
-.card:hover::before {
-    opacity: 1;
-}
+.card:hover { transform: translate(-10px, -10px); }
+.card:hover::before { opacity: 1; }
 
 .card-wexlor:hover { border-color: var(--accent-wexlor); box-shadow: 10px 10px 0px var(--accent-wexlor); }
 .card-vexy:hover { border-color: var(--accent-vexy); box-shadow: 10px 10px 0px var(--accent-vexy); }
 .card-chpn:hover { border-color: var(--accent-chpn); box-shadow: 10px 10px 0px var(--accent-chpn); }
 .card-secret:hover { border-color: var(--accent-secret); box-shadow: 10px 10px 0px var(--accent-secret); }
 
-.card > * {
-    position: relative;
-    z-index: 1;
-}
+.card > * { position: relative; z-index: 1; }
 
-.card h3 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-}
-
-.card p {
-    color: var(--text-dim);
-    flex-grow: 1;
-    margin-bottom: 2.5rem;
-    font-size: 1rem;
-}
+.card h3 { font-size: 1.8rem; margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.5px; }
+.card p { color: var(--text-dim); flex-grow: 1; margin-bottom: 2.5rem; font-size: 1rem; }
 
 .tag {
     align-self: flex-start;
@@ -338,13 +290,8 @@ main {
     border: 1px solid var(--border-color);
 }
 
-.secret-text {
-    transition: opacity 0s;
-}
-
-.secret-title:hover .secret-text {
-    opacity: 0;
-}
+.secret-text { transition: opacity 0s; }
+.secret-title:hover .secret-text { opacity: 0; }
 
 .secret-title::after {
     content: "";
@@ -382,6 +329,8 @@ footer {
     display: flex;
     gap: 3rem;
     align-items: flex-start;
+    flex-wrap: wrap; 
+    justify-content: center;
 }
 
 .social-link {
@@ -396,19 +345,24 @@ footer {
     transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.2s;
 }
 
-.social-link svg {
+.social-link:hover { transform: translateY(-5px); }
+
+.social-tg:hover { color: #0088cc; }
+.social-tiktok:hover { color: #ff0050; }
+.social-steam:hover { color: #66c0f4; }
+.social-twitch:hover { color: #9146FF; }
+.social-modrinth:hover { color: #1bd96a; }
+.social-curseforge:hover { color: #f16436; }
+
+.real-logo {
     width: 28px;
     height: 28px;
-    fill: currentColor;
-    transition: fill 0.2s;
+    object-fit: contain;
 }
 
-.social-link:hover {
-    transform: translateY(-5px);
-}
-
-.social-tg:hover {
-    color: #0088cc;
+.social-tg .real-logo,
+.social-tiktok .real-logo {
+    border-radius: 8px;
 }
 
 .ds-container {
@@ -430,15 +384,7 @@ footer {
     transition: color 0.2s;
 }
 
-.ds-icon-wrapper svg {
-    width: 28px;
-    height: 28px;
-    fill: currentColor;
-}
-
-.ds-container:hover .ds-icon-wrapper {
-    color: #5865F2;
-}
+.ds-container:hover .ds-icon-wrapper { color: #5865F2; }
 
 .ds-handle {
     font-family: 'Fira Code', monospace;
@@ -523,7 +469,7 @@ footer {
 
             <a href="https://discord.gg/9vQPAphzmt" target="_blank" class="card card-vexy">
                 <h3>Vexy</h3>
-                <p>Брат ВексЛОРА, но без лора и с режимами. Доступен всем. </p>
+                <p>Брат ВексЛОРА, но без лора и с режимами. Доступен всем.</p>
                 <div class="tag">Основатель</div>
             </a>
 
@@ -545,18 +491,40 @@ footer {
 
     <footer>
         <div class="social-links">
+            
             <a href="https://t.me/poldmin" target="_blank" class="social-link social-tg">
-                <svg viewBox="0 0 24 24">
-                    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.32.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                </svg>
-                <span>/tg/poldmin</span>
+                <img src="https://www.google.com/s2/favicons?domain=t.me&sz=128" alt="Telegram" class="real-logo">
+                <span>Telegram</span>
+            </a>
+
+            <a href="https://www.tiktok.com/@po_dmin" target="_blank" class="social-link social-tiktok">
+                <img src="https://www.google.com/s2/favicons?domain=tiktok.com&sz=128" alt="TikTok" class="real-logo">
+                <span>TikTok</span>
+            </a>
+
+            <a href="https://steamcommunity.com/profiles/76561199601502930" target="_blank" class="social-link social-steam">
+                <img src="https://www.google.com/s2/favicons?domain=store.steampowered.com&sz=128" alt="Steam" class="real-logo">
+                <span>Steam</span>
+            </a>
+
+            <a href="https://twitch.tv/poldmin" target="_blank" class="social-link social-twitch">
+                <img src="https://www.google.com/s2/favicons?domain=twitch.tv&sz=128" alt="Twitch" class="real-logo">
+                <span>Twitch</span>
+            </a>
+
+            <a href="https://modrinth.com/user/Poldmin" target="_blank" class="social-link social-modrinth">
+                <img src="https://www.google.com/s2/favicons?domain=modrinth.com&sz=128" alt="Modrinth" class="real-logo">
+                <span>Modrinth</span>
+            </a>
+
+            <a href="https://www.curseforge.com/members/poldmin/projects" target="_blank" class="social-link social-curseforge">
+                <img src="https://www.google.com/s2/favicons?domain=curseforge.com&sz=128" alt="CurseForge" class="real-logo">
+                <span>CurseForge</span>
             </a>
             
             <div class="ds-container">
                 <div class="ds-icon-wrapper">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6081 1.2498-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8745-.6174-1.2498a.077.077 0 00-.0788-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/>
-                    </svg>
+                    <img src="https://www.google.com/s2/favicons?domain=discord.com&sz=128" alt="Discord" class="real-logo">
                     <span>Discord</span>
                 </div>
                 <div class="ds-handle">@poldmin</div>
